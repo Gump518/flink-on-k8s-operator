@@ -128,8 +128,8 @@ kubectl certificate approve ${csrName}
 
 # verify certificate has been signed
 for x in $(seq 10); do
-  serverCert=$(kubectl get csr ${csrName} -o jsonpath='{.status.certificate}')
-  if [[ ${serverCert} != '' ]]; then
+  serverCert=$(kubectl get csr ${csrName} -o jsonpath='{.status.conditions[0].status}')
+  if [[ ${serverCert} == 'True' ]]; then
     break
   fi
   sleep 1

@@ -1,6 +1,6 @@
 
 # Image URL to use all building/pushing image targets
-IMG ?= gcr.io/flink-operator/flink-operator:latest
+IMG ?= swr.cn-north-4.myhuaweicloud.com/hexbigdata/flink-operator:latest
 # Produce CRDs that work back to Kubernetes 1.11 (no version conversion)
 CRD_OPTIONS ?= "crd:maxDescLen=0,trivialVersions=true"
 # The Kubernetes namespace in which the operator will be deployed.
@@ -90,7 +90,8 @@ push-operator-image:
 #################### Deployment ####################
 
 # Install CRDs into a cluster
-install: manifests
+# install: manifests
+install:
 	kubectl apply -f config/crd/bases
 
 # Deploy cert-manager which is required by webhooks of the operator.

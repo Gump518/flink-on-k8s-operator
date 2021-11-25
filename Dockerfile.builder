@@ -26,7 +26,6 @@ ENV PATH=${PATH}:${GOROOT}/bin
 #    && mv /usr/local/kubebuilder_2.0.1_linux_amd64 /usr/local/kubebuilder
 
 COPY kubebuilder_2.0.1_linux_amd64.tar.gz .
-RUN pwd
 RUN tar -zxvf kubebuilder_2.0.1_linux_amd64.tar.gz -C /usr/local/
 RUN mv /usr/local/kubebuilder_2.0.1_linux_amd64 /usr/local/kubebuilder
 ENV PATH=${PATH}:/usr/local/kubebuilder/bin

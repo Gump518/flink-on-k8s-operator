@@ -5,7 +5,7 @@
 
 # Use distroless as minimal base image to package the Flink Operator binary
 # Refer to https://github.com/GoogleContainerTools/distroless for more details
-FROM gcr.io/distroless/static:latest
+FROM ubuntu:18.04
 WORKDIR /
 COPY --from=flink-operator-builder /workspace/bin/flink-operator .
 ENTRYPOINT ["/flink-operator"]
